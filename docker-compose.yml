@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./truvani-backend
+      dockerfile: ./Dockerfile.dev
+    image: "rdevcd2020/truvani-backend:1.0"
+    ports:
+      - "2888:2888"
+  frontend:
+    build:
+      context: ./truvani-frontend
+      dockerfile: : ./Dockerfile.dev
+    image: "rdevcd2020/truvani-frontend:1.0"  
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/truvani/node_modules
+      - ./truvani-frontend:/app/truvani 
+    links: 
+      - "backend"   
