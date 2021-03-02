@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start:backend": "node index.js"
+    "start:backend": "nodemon ./index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

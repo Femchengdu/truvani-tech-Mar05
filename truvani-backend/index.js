@@ -15,5 +15,5 @@ app.get("/test_server", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server started at localhost:${port}`);
+  console.log(`{^_^}/ server started at localhost:${port}`);
 });
