@@ -5,7 +5,7 @@ import list from "../dummyData";
 const ItemListContainer = () => {
   return (
     <Fragment>
-      <p>ItemListContainer</p>
+      <h3>Products List</h3>
       <ItemList list={list} />
     </Fragment>
   );
