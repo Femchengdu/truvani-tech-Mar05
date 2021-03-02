@@ -1,0 +1,16 @@
+FROM node:14.14.0-alpine
+
+LABEL version="1.0"
+LABEL description="This is a base image for the Truvani remcomendations API"
+
+WORKDIR /app/truvani
+
+COPY package.json .
+
+RUN yarn install
+
+COPY . .
+
+EXPOSE 2888
+
+CMD [ "yarn", "start:backend" ]
