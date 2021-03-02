@@ -8,15 +8,18 @@ services:
     image: "rdevcd2020/truvani-backend:1.0"
     ports:
       - "2888:2888"
+    volumes:
+      - /app/truvani/node_modules
+      - ./truvani-backend:/app/truvani
   frontend:
     build:
       context: ./truvani-frontend
-      dockerfile: : ./Dockerfile.dev
-    image: "rdevcd2020/truvani-frontend:1.0"  
+      dockerfile: ./Dockerfile.dev
+    image: "rdevcd2020/truvani-frontend:1.0"
     ports:
       - "3000:3000"
     volumes:
       - /app/truvani/node_modules
-      - ./truvani-frontend:/app/truvani 
-    links: 
-      - "backend"   
+      - ./truvani-frontend:/app/truvani
+    links:
+      - "backend"
