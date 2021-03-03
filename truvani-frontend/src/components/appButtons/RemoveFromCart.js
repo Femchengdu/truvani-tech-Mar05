@@ -1,11 +1,21 @@
 import React from "react";
-
-const RemoveFromCart = ({ operation }) => {
+import { connect } from "react-redux";
+import { removeItemFromCart } from "../../redux/actions/cartActions";
+const RemoveFromCart = ({ title, removeItemFromCart, item }) => {
   return (
     <div>
-      <button className="btn btn-block btn-danger">{operation}</button>
+      <button
+        onClick={() => removeItemFromCart(item)}
+        className="btn btn-danger"
+      >
+        {title}
+      </button>
     </div>
   );
 };
 
-export default RemoveFromCart;
+const mapDispatchToProps = (dispatch) => ({
+  removeItemFromCart: (item) => dispatch(removeItemFromCart(item)),
+});
+
+export default connect(null, mapDispatchToProps)(RemoveFromCart);

@@ -1,11 +1,21 @@
 import React from "react";
-
-const AddToCart = ({ title }) => {
+import { connect } from "react-redux";
+import { addItemToCart } from "../../redux/actions/cartActions";
+const AddToCart = ({ title, addItemToCart, item, isCart }) => {
   return (
     <div>
-      <button className="btn btn-block btn-primary">{title}</button>
+      <button
+        onClick={() => addItemToCart(item)}
+        className={isCart ? "btn btn-primary" : "btn btn-block btn-primary"}
+      >
+        {title}
+      </button>
     </div>
   );
 };
 
-export default AddToCart;
+const mapDispatchToProps = (dispatch) => ({
+  addItemToCart: (item) => dispatch(addItemToCart(item)),
+});
+
+export default connect(null, mapDispatchToProps)(AddToCart);
