@@ -1,12 +1,12 @@
 const config = {
-  apiUrl: "https://localhost:2828",
+  apiUrl: "http://backend:2888",
   productList: "/products",
   productRecommendation: "/recommends",
 };
 
-const { apiUrl, productList, productRecommendation };
+const { productList, productRecommendation, apiUrl } = config;
 
 const productListUrl = apiUrl + productList;
-const recommendsUrl = apiUrl + productRecommendation;
+const recommendsUrl = productRecommendation;
 
 export { productListUrl, recommendsUrl };

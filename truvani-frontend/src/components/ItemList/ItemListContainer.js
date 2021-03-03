@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ItemList from "./ItemList";
-import list from "../dummyData";
-
+import useFetchProducts from "../../hooks/useFetchProducts";
 const ItemListContainer = () => {
+  useFetchProducts();
   return (
     <main>
       <h3>Products List</h3>
-      <ItemList list={list} />
+      <ItemList list={cartItems} />
     </main>
   );
 };

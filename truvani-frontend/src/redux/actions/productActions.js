@@ -1,23 +1,24 @@
 import axios from "axios";
-import * as types from "../types/actionTypes";
+import {
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_PENDING,
+  FETCH_PRODUCTS_FAILED,
+} from "../types/actionTypes";
 import { productListUrl } from "../../config/appConfig";
-// Add to Cart
 
-// Remove from Cart
-
-// Fetch Products
 const fetchProducts = () => {
   return async (dispatch, getState) => {
-    dispatch({ type: types.FETCH_PRODUCTS_PENDING });
+    dispatch({ type: FETCH_PRODUCTS_PENDING });
     try {
       const res = await axios.get(productListUrl);
       const { data } = res;
-      if (data) {
-        dispatch({ type: types.FETCH_PRODUCTS_SUCCESS, products: data });
+      if (data && "products" in data) {
+        const { products } = data;
+        dispatch({ type: FETCH_PRODUCTS_SUCCESS, products });
       }
     } catch (error) {
       const { message } = error;
-      dispatch({ type: types.FETCH_PRODUCTS_FAILED, err: message });
+      dispatch({ type: FETCH_PRODUCTS_FAILED, err: message });
     }
   };
 };

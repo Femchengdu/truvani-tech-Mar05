@@ -1,4 +1,4 @@
-const list = [
+const products = [
   {
     id: 1,
     title: "Sundance tops",
@@ -24,4 +24,7 @@ const list = [
     price: 599,
   },
 ];
-export default list;
+module.exports;
+module.exports = {
+  products,
+};
