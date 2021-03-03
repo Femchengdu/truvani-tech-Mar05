@@ -6,7 +6,7 @@ const ItemListContainer = () => {
   return (
     <main>
       <h3>Products List</h3>
-      <ItemList list={cartItems} />
+      <ItemList />
     </main>
   );
 };

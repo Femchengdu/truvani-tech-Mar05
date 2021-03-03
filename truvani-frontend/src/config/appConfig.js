@@ -1,5 +1,5 @@
 const config = {
-  apiUrl: "http://backend:2888",
+  apiUrl: "http://localhost:2888",
   productList: "/products",
   productRecommendation: "/recommends",
 };
