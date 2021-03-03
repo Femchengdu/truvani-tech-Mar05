@@ -4,10 +4,10 @@ import list from "../dummyData";
 
 const ItemListContainer = () => {
   return (
-    <Fragment>
+    <main>
       <h3>Products List</h3>
       <ItemList list={list} />
-    </Fragment>
+    </main>
   );
 };
 

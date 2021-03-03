@@ -3,9 +3,9 @@ import ItemDetail from "./ItemDetail";
 
 const ItemList = ({ list }) => {
   return (
-    <div className="container">
-      {list.map((item, index) => (
-        <ItemDetail key={item.Handle} item={item} />
+    <div className="row">
+      {list.map((item) => (
+        <ItemDetail key={item.id} item={item} />
       ))}
     </div>
   );
