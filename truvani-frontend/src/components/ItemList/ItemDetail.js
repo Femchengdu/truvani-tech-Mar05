@@ -4,10 +4,18 @@ const ItemDetail = ({ item }) => {
   return (
     <div className="col-xs-4">
       <div className="well">
-        <img className="img-responsive" src={item.imageSrc} alt={item.title} />
-        <h3> {item.title}</h3>
-        <div>${item.price}</div>
-        <AddToCart title="Add To Cart" />
+        <div className="card">
+          <img
+            className="img-responsive"
+            src={item.imageSrc}
+            alt={item.title}
+          />
+          <div className="card-body">
+            <h3 className="card-title"> {item.title}</h3>
+            <p class="card-text">${item.price}</p>
+            <AddToCart title="Add To Cart" item={item} />
+          </div>
+        </div>
       </div>
     </div>
   );
