@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Checkout from "../appButtons/Checkout";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 const Cart = ({ cartItems }) => {
@@ -13,6 +14,7 @@ const Cart = ({ cartItems }) => {
         ))}
       </ul>
       <CartSummary />
+      <Checkout />
     </aside>
   );
 };
