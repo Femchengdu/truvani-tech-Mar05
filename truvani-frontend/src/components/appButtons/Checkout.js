@@ -8,7 +8,7 @@ const Checkout = ({ cartItems }) => {
       <hr />
       {cartItemsAvailable && (
         <button className="btn btn-info btn-block">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           &nbsp; Checkout
         </button>
       )}

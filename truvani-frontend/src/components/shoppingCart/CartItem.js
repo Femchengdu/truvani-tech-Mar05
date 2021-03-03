@@ -8,7 +8,7 @@ const CartItem = ({ item }) => {
       <div className="row">
         <div className="col-xs-4">{item.title}</div>
         <div className="col-xs-4">
-          <div class="row">
+          <div className="row">
             <div className="col-xs-4">
               {" "}
               <AddToCart isCart title="+" item={item} />

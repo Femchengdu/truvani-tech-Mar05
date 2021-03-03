@@ -7,7 +7,7 @@ const CartBadge = ({ cartItems }) => {
     <>
       {cartItemsAvailable && (
         <button className="btn btn-info">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           &nbsp;
           <span className="badge badge-light">{cartItems.length}</span>
         </button>

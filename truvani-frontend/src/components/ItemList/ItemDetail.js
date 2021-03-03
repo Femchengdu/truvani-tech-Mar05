@@ -12,7 +12,7 @@ const ItemDetail = ({ item }) => {
           />
           <div className="card-body">
             <h3 className="card-title"> {item.title}</h3>
-            <p class="card-text">${item.price}</p>
+            <p className="card-text">${item.price}</p>
             <AddToCart title="Add To Cart" item={item} />
           </div>
         </div>
