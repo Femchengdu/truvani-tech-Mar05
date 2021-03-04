@@ -1,11 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addItemToCart } from "../../redux/actions/cartActions";
-const AddToCart = ({ title, addItemToCart, item, isCart }) => {
+import { fetchRecommendations } from "../../redux/actions/recommendActions";
+const AddToCart = ({
+  title,
+  addItemToCart,
+  item,
+  isCart,
+  fetchRecommendations,
+}) => {
   return (
     <div>
       <button
-        onClick={() => addItemToCart(item)}
+        onClick={() => {
+          addItemToCart(item);
+          console.log("calling fect rec with :", item.title);
+          fetchRecommendations(item.title);
+        }}
         className={isCart ? "btn btn-primary" : "btn btn-block btn-primary"}
       >
         {title}
@@ -16,6 +27,7 @@ const AddToCart = ({ title, addItemToCart, item, isCart }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (item) => dispatch(addItemToCart(item)),
+  fetchRecommendations: (itemName) => dispatch(fetchRecommendations(itemName)),
 });
 
 export default connect(null, mapDispatchToProps)(AddToCart);
