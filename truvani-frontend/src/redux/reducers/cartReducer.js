@@ -2,10 +2,11 @@ import {
   ADD_PRODUCT_TO_CART,
   REMOVE_PRODUCT_FROM_CART,
 } from "../types/actionTypes";
+import { productInList } from "../../utilityFns/utils";
 
 const returnCartItemsOnAdd = (cartItems, product) => {
   let updatedCartItems;
-  const productFromCart = productInCart(cartItems, product);
+  const productFromCart = productInList(cartItems, product);
 
   if (productFromCart) {
     updatedCartItems = cartItems.map((prod) =>
@@ -21,7 +22,7 @@ const returnCartItemsOnAdd = (cartItems, product) => {
 
 const returnCartItemsOnRemove = (cartItems, product) => {
   let updatedCartItems;
-  const productFromCart = productInCart(cartItems, product);
+  const productFromCart = productInList(cartItems, product);
 
   if (productFromCart.qty === 1) {
     updatedCartItems = cartItems.filter(
@@ -35,11 +36,6 @@ const returnCartItemsOnRemove = (cartItems, product) => {
     );
   }
   return updatedCartItems;
-};
-
-const productInCart = (cartItems, product) => {
-  const inCart = cartItems.find((prod) => prod.id === product.id);
-  return inCart;
 };
 
 const INITIAL_STATE = [];
