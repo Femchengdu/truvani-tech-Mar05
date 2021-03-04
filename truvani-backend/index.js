@@ -1,5 +1,10 @@
 const express = require("express");
 const cors = require("cors");
+const {
+  recommendByProductByLikes,
+  recommendByProductProperties,
+} = require("./recommender/recommender");
+
 const { products } = require("./data/dummyData");
 const port = process.env.PORT || 2888;
 
@@ -21,6 +26,22 @@ app.get("/products", (req, res) => {
       products,
     })
   );
+});
+
+app.get("/recommends", (req, res) => {
+  try {
+    const { q } = req.query;
+    console.log("The query is :", q);
+    res.send(
+      JSON.stringify({
+        title: q,
+        id: 999,
+      })
+    );
+  } catch (error) {
+    console.log("Recommender search error :", error);
+    res.sendStatus(200);
+  }
 });
 
 app.listen(port, () => {
