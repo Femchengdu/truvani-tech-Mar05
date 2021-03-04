@@ -1,32 +1,43 @@
 import axios from "axios";
-import * as types from "../types/actionTypes";
+import {
+  FETCH_RECOMMENDATION_FAILED,
+  REMOVE_RECOMMENDATION,
+  FETCH_RECOMMENDATION_SUCCESS,
+  CLEAR_ALL_RECOMMENDATIONS,
+  FETCH_RECOMMENDATION_PENDING,
+} from "../types/actionTypes";
 import { recommendsUrl } from "../../config/appConfig";
 
-const fetchRecommendations = (product) => {
+const fetchRecommendations = (query) => {
   return async (dispatch, getState) => {
-    dispatch({ type: types.FETCH_RECOMMENDATIONS_PENDING });
+    dispatch({ type: FETCH_RECOMMENDATION_PENDING });
     try {
-      const res = await axios.get(recommendsUrl);
+      let res;
+      if (query && query !== "") {
+        res = await axios.get(recommendsUrl + `?q=${query}`);
+      }
+
       const { data } = res;
       if (data) {
+        console.log("data returned :", data.data);
         dispatch({
-          type: types.FETCH_RECOMMENDATIONS_SUCCESS,
-          recommendations: data,
+          type: FETCH_RECOMMENDATION_SUCCESS,
+          recommendation: data,
         });
       }
     } catch (error) {
       const { message } = error;
-      dispatch({ type: types.FETCH_RECOMMENDATIONS_FAILED, err: message });
+      dispatch({ type: FETCH_RECOMMENDATION_FAILED, err: message });
     }
   };
 };
 
 const clearRecomendations = () => ({
-  type: types.CLEAR_RECOMMENDATIONS,
+  type: CLEAR_ALL_RECOMMENDATIONS,
 });
 
 const removeRecommendation = (id) => ({
-  type: types.REMOVE_RECOMMENDATION,
+  type: REMOVE_RECOMMENDATION,
   id,
 });
 
