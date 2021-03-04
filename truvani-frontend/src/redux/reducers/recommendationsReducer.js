@@ -28,7 +28,6 @@ const returnRecommenderItemsOnAdd = (recommendationItems, product) => {
     recommendationItems,
     product
   );
-  console.log("test returned recom :", product, porductFromRecommendations);
   if (!porductFromRecommendations) {
     updatedRecommendationItems = [...recommendationItems, { ...product }];
   } else {
