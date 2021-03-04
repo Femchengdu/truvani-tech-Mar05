@@ -7,6 +7,6 @@ const config = {
 const { productList, productRecommendation, apiUrl } = config;
 
 const productListUrl = apiUrl + productList;
-const recommendsUrl = productRecommendation;
+const recommendsUrl = apiUrl + productRecommendation;
 
 export { productListUrl, recommendsUrl };
