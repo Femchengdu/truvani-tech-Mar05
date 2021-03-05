@@ -34,8 +34,12 @@ app.get("/recommends", (req, res) => {
     console.log("The query is :", q);
     res.send(
       JSON.stringify({
-        title: q,
+        query: q,
         id: 999,
+        title: "Sundance tops",
+        imageSrc: "https://picsum.photos/id/1025/300/200",
+        price: 299,
+        recommended: true,
       })
     );
   } catch (error) {
