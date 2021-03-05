@@ -1,7 +1,9 @@
 import React from "react";
 import AddToCart from "../appButtons/AddToCart";
 import RecommenderBadge from "./RecommederBadge";
+import useClearRecommendation from "../../hooks/useClearRecommendations";
 const RecommenderDetail = ({ item }) => {
+  useClearRecommendation();
   return (
     <div className="col-xs-4">
       <div className="well">

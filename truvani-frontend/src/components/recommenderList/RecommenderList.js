@@ -10,14 +10,11 @@ const RecommenderList = ({ recommenderItems }) => {
           <h3>You might also like these items:</h3>
           <div className="row">
             {recommenderItems.map((item) => (
-              <RecommenderDetail item={item} />
+              <RecommenderDetail key={item.id + "rec"} item={item} />
             ))}{" "}
           </div>
         </div>
       </div>
-      {/* <div className="col-md-4">
-        <div className="well">List</div>
-      </div> */}
     </div>
   );
 };

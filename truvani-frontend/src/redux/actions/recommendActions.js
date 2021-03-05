@@ -19,7 +19,6 @@ const fetchRecommendations = (query) => {
 
       const { data } = res;
       if (data) {
-        console.log("data returned :", data.data);
         dispatch({
           type: FETCH_RECOMMENDATION_SUCCESS,
           recommendation: data,
