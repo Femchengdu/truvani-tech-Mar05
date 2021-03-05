@@ -20,8 +20,8 @@ const ItemList = ({ products, loading }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  products: state.products,
-  loading: state.loading,
+const mapStateToProps = ({ products, loading }) => ({
+  products,
+  loading,
 });
 export default connect(mapStateToProps)(ItemList);
