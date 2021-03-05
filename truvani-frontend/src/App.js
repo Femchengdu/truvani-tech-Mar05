@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/appHeader/Header";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
+import RecommenderContainer from "./components/recommenderList/RecommenderContainer";
 import Cart from "./components/shoppingCart/Cart";
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           </div>
         </div>
       </div>
+      <RecommenderContainer />
     </div>
   );
 }
