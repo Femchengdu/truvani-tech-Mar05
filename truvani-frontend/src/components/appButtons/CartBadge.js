@@ -16,8 +16,8 @@ const CartBadge = ({ cartItems }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  cartItems: state.cart,
+const mapStateToProps = ({ cartItems }) => ({
+  cartItems,
 });
 
 export default connect(mapStateToProps)(CartBadge);

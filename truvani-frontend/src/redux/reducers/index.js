@@ -9,11 +9,11 @@ import recommenderErrorReducer from "./recommenderErrorReducer";
 import recommendationLoadingReducer from "./recommendationLoadingReducer";
 
 const rootReducer = combineReducers({
-  cart: cartReducer,
+  cartItems: cartReducer,
   error: errorReducer,
   loading: loadingReducer,
   products: productsReducer,
-  recommendations: recommendationsReducer,
+  recommenderItems: recommendationsReducer,
   recommenderErrro: recommenderErrorReducer,
   recommendationLoading: recommendationLoadingReducer,
 });

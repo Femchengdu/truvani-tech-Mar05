@@ -19,8 +19,8 @@ const Cart = ({ cartItems }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => ({
-  cartItems: cart,
+const mapStateToProps = ({ cartItems }) => ({
+  cartItems,
 });
 
 export default connect(mapStateToProps)(Cart);
