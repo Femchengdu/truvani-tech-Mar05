@@ -1,6 +1,7 @@
 import {
   ADD_PRODUCT_TO_CART,
   REMOVE_PRODUCT_FROM_CART,
+  UPDATE_REDUX_CART_FROM_LS,
 } from "../types/actionTypes";
 import { productInList } from "../../utilityFns/utils";
 
@@ -38,9 +39,17 @@ const returnCartItemsOnRemove = (cartItems, product) => {
   return updatedCartItems;
 };
 
+const updateStateFromLocalStorage = (cartItems, localStorageCart) => {
+  let updatedState;
+  updatedState = [...localStorageCart];
+  return updatedState;
+};
+
 const INITIAL_STATE = [];
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case UPDATE_REDUX_CART_FROM_LS:
+      return updateStateFromLocalStorage(state, action.cart);
     case ADD_PRODUCT_TO_CART:
       return returnCartItemsOnAdd(state, action.product);
     case REMOVE_PRODUCT_FROM_CART:

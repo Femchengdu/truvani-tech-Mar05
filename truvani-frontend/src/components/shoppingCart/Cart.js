@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import Checkout from "../appButtons/Checkout";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
+import usePersistedCart from "../../hooks/usePersistedCart";
+import useUpdateCartInLocalStorage from "../../hooks/useUpdateCartInLocalStorage";
 const Cart = ({ cartItems }) => {
+  usePersistedCart(cartItems);
+  useUpdateCartInLocalStorage();
   return (
     <aside>
       <h3>Cart Items</h3>
