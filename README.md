@@ -2,7 +2,7 @@
 
 ## _Full Stack Developer Technical Interview_
 
-This application is created to fetch and display a list of product from a backend server.
+This application is created to fetch and display a list of products from a backend server.
 
 ## Technology Used
 
