@@ -2,7 +2,7 @@
 
 ## _Full Stack Developer Technical Interview_
 
-This application is created to fetch and display recomended products.
+This application is created to fetch and display a list of product from a backend server.
 
 ## Technology Used
 
@@ -19,6 +19,8 @@ This application is created to fetch and display recomended products.
 
 - NodeJs
 - ExpressJs
+- Cors
+- Dotenv
 
 ### Key Features:
 
@@ -34,27 +36,26 @@ This application is created to fetch and display recomended products.
 ### Docker
 
 This project is very easy to run using Docker.
-By default, Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+By default, Docker will expose port 3000, so change this within the
+Dockerfile if necessary.
+
+Once in the root of the project, build and run the project by running
 
 ```sh
-cd dillinger
-docker build -t <youruser>/image-name .
-```
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 -- other-commands-to-be-updated
+docker-compose up --build
 ```
 
 Verify the deployment by navigating to your server address in
 your preferred browser.
 
 ```sh
-127.0.0.1:8000
+localhost:3000
+```
+
+The backend server will be running on
+
+```sh
+localhost:2888
 ```
 
 ## License
