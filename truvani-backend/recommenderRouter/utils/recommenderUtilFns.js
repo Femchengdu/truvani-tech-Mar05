@@ -25,6 +25,18 @@ const getCategoryMatch = (
   return matchPercent > sensitivity ? "match" : "noMatch";
 };
 
+const getIndividulaMatchValue = (selectedCategory, productCategory) => {
+  let categoryMatch = 0;
+  selectedCategory.forEach((category) => {
+    if (productCategory.includes(category)) {
+      categoryMatch += 1;
+    }
+  });
+  let matchPercent = categoryMatch / selectedCategory.length;
+
+  return matchPercent.toFixed(2);
+};
+
 const createEventsArrayFromData = (
   dataArray,
   nameSapace,
@@ -86,17 +98,46 @@ const recommendByProductProperty = (
     })
     .then(function (recommendations) {
       const { recommendations: innerRecommendations } = recommendations;
-      console.log("myResults ?", innerRecommendations);
+
       if (innerRecommendations.length === 0) {
         responseCb([]);
       } else {
-        const recommendationObj = innerRecommendations[0];
+        console.log(
+          "myResults ?",
+          innerRecommendations.filter((obj) => obj.thing === "match")
+        );
+        const recommendationObj = innerRecommendations.filter(
+          (obj) => obj.thing === "match"
+        )[0];
         const { people } = recommendationObj;
 
         // Render result
         if (people) {
           const numberPeopleArr = people.map((val) => parseInt(val));
-          responseCb(numberPeopleArr);
+
+          // Map over the filtered data to create an array of recommndations with precision
+          const newProductArr = numberPeopleArr.map((id) => {
+            const selectedProduct = dataArray.find(
+              (product) => product.id === id
+            );
+            //console.log("we have people :", selectedProduct, id);
+            const sharedCategoryValue = parseFloat(
+              getIndividulaMatchValue(
+                propertiesKeysArray,
+                selectedProduct.categories
+              )
+            );
+            selectedProduct.sharedCategories = sharedCategoryValue;
+
+            selectedProduct.recommended = true;
+            return selectedProduct;
+          });
+          // Last filter, remove the value whoes shared categoryis is 1
+          const recommendsWithoutRef = newProductArr.filter(
+            (prod) => prod.id !== parseInt(productId)
+          );
+          console.log("the recommend product arr is  :", recommendsWithoutRef);
+          responseCb(recommendsWithoutRef);
         }
       }
     });
