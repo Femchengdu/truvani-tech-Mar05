@@ -5,9 +5,11 @@ import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 import usePersistedCart from "../../hooks/usePersistedCart";
 import useUpdateCartInLocalStorage from "../../hooks/useUpdateCartInLocalStorage";
+import useCartAmmount from "../../hooks/useCartAmmount";
 const Cart = ({ cartItems }) => {
   usePersistedCart(cartItems);
   useUpdateCartInLocalStorage();
+  useCartAmmount();
   return (
     <aside>
       <h3>Cart Items</h3>
