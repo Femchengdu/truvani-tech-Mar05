@@ -32,9 +32,19 @@ This application is created to fetch and display a list of products and recommen
 - Indicate recommended items using a label or icon
 - 2 API endpoints
 - Products sorted in descending order when while cart has unearned rewards
+  ![descending-sort](https://github.com/Femchengdu/truvani-tech-Mar05/blob/master/screenshots/recProdDesc.png?raw=true)
+
 - Products sorted in ascending order while cart has all earned rewards
+
+![ascending-sort](https://github.com/Femchengdu/truvani-tech-Mar05/blob/master/screenshots/recProdAsc.png?raw=true)
+
 - Free shipping at $99
+
+![free-shipping](https://github.com/Femchengdu/truvani-tech-Mar05/blob/master/screenshots/freeShipping.png?raw=true)
+
 - Free shipping and Tote bag at $149
+
+![free-shipping-plus-tote-bag](https://github.com/Femchengdu/truvani-tech-Mar05/blob/master/screenshots/freeShippingNdTote.png?raw=true)
 
 ## Installation
 
