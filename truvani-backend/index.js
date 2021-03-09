@@ -1,15 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const {
-  recommendByProductByLikes,
-  recommendByProductProperties,
-} = require("./recommender/recommender");
-
+const recommends = require("./recommenderRouter/recommender");
 const { products } = require("./data/dummyData");
 const port = process.env.PORT || 2888;
 
 const app = new express();
 app.use(cors());
+
+app.use("/recommends", recommends);
 
 app.get("/test_server", (req, res) => {
   res.send(
@@ -26,26 +24,6 @@ app.get("/products", (req, res) => {
       products,
     })
   );
-});
-
-app.get("/recommends", (req, res) => {
-  try {
-    const { q } = req.query;
-    console.log("The query is :", q);
-    res.send(
-      JSON.stringify({
-        query: q,
-        id: 999,
-        title: "Sundance tops",
-        imageSrc: "https://picsum.photos/id/1025/300/200",
-        price: 299,
-        recommended: true,
-      })
-    );
-  } catch (error) {
-    console.log("Recommender search error :", error);
-    res.sendStatus(200);
-  }
 });
 
 app.listen(port, () => {
