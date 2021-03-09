@@ -1,13 +1,20 @@
 import { useEffect } from "react";
 import { clearRecomendations } from "../redux/actions/recommendActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 const useClearRecommendation = () => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cartItems);
   useEffect(() => {
     return () => {
-      dispatch(clearRecomendations());
+      if (cartItems.length === 0) {
+        // TODO we never get to this code
+        // Do you still need it here?
+        console.log("Cart items are :", cartItems.length);
+        dispatch(clearRecomendations());
+      }
     };
-  }, [dispatch]);
+  }, [dispatch, cartItems.length]);
 };
 
 export default useClearRecommendation;
