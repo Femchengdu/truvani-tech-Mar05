@@ -7,6 +7,7 @@ import productsReducer from "./productsReducer";
 import recommendationsReducer from "./recommendationsReducer";
 import recommenderErrorReducer from "./recommenderErrorReducer";
 import recommendationLoadingReducer from "./recommendationLoadingReducer";
+import rewardsReducer from "./rewardsReducer";
 
 const rootReducer = combineReducers({
   cartItems: cartReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   recommenderItems: recommendationsReducer,
   recommenderErrro: recommenderErrorReducer,
   recommendationLoading: recommendationLoadingReducer,
+  rewards: rewardsReducer,
 });
 
 export default rootReducer;
