@@ -5,7 +5,7 @@ const ShippingComponent = ({ rewards }) => {
   rewards === "Free Shipping and Totebag" ? (
     (returnContent = (
       <span>
-        Free Shipping <i class="fa fa-truck" aria-hidden="true"></i> + Totebag{" "}
+        Free Shipping <i class="fa fa-truck" aria-hidden="true"></i> + Tote bag{" "}
         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
       </span>
     ))
