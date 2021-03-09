@@ -14,8 +14,7 @@ const AddToCart = ({
       <button
         onClick={() => {
           addItemToCart(item);
-
-          fetchRecommendations(item.title);
+          fetchRecommendations(item.id);
         }}
         className={isCart ? "btn btn-primary" : "btn btn-block btn-primary"}
       >

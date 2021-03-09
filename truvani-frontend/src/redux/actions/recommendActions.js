@@ -8,6 +8,19 @@ import {
 } from "../types/actionTypes";
 import { recommendsUrl } from "../../config/appConfig";
 
+const filterProductsUsingIds = (idArr, productList) => {
+  const finalList = [];
+  idArr.forEach((id) => {
+    const product = productList.find((product) => {
+      return product.id === id;
+    });
+    if (product) {
+      finalList.push({ ...product, recommended: true });
+    }
+  });
+  return finalList;
+};
+
 const fetchRecommendations = (query) => {
   return async (dispatch, getState) => {
     dispatch({ type: FETCH_RECOMMENDATION_PENDING });
@@ -18,10 +31,14 @@ const fetchRecommendations = (query) => {
       }
 
       const { data } = res;
-      if (data) {
+      const { recommends } = data;
+
+      if (recommends) {
+        const { products } = getState();
+        const recomendedProducts = filterProductsUsingIds(recommends, products);
         dispatch({
           type: FETCH_RECOMMENDATION_SUCCESS,
-          recommendation: data,
+          recommendation: recomendedProducts,
         });
       }
     } catch (error) {

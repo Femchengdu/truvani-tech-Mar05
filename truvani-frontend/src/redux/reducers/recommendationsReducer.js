@@ -22,17 +22,8 @@ const returnRecommendationsOnRemove = (recommendationItems, product) => {
   return updatedRecommendationItems;
 };
 
-const returnRecommenderItemsOnAdd = (recommendationItems, product) => {
-  let updatedRecommendationItems;
-  const porductFromRecommendations = productInList(
-    recommendationItems,
-    product
-  );
-  if (!porductFromRecommendations) {
-    updatedRecommendationItems = [...recommendationItems, { ...product }];
-  } else {
-    updatedRecommendationItems = [...recommendationItems];
-  }
+const returnRecommenderItemsOnAdd = (recommendations) => {
+  let updatedRecommendationItems = [...recommendations];
   return updatedRecommendationItems;
 };
 
@@ -44,7 +35,7 @@ const recommendationsReducer = (state = INITIAL_STATE, action) => {
     case REMOVE_RECOMMENDATION:
       return returnRecommendationsOnRemove(state, action.product);
     case FETCH_RECOMMENDATION_SUCCESS:
-      return returnRecommenderItemsOnAdd(state, action.recommendation);
+      return returnRecommenderItemsOnAdd(action.recommendation);
     default:
       return state;
   }
