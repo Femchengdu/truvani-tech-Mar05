@@ -1,8 +1,18 @@
 import React from "react";
 import RecommenderDetail from "./RecommenderDetail";
 import { connect } from "react-redux";
+import {
+  sortPriceAscCategoriesDesc,
+  sortPriceDescCategoriesDesc,
+} from "../../utilityFns/utils";
 
-const RecommenderList = ({ recommenderItems }) => {
+const RecommenderList = ({ recommenderItems, rewards }) => {
+  console.log("test rewards :", rewards);
+  if (rewards === "Free Shipping and Totebag") {
+    sortPriceDescCategoriesDesc(recommenderItems);
+  } else {
+    sortPriceAscCategoriesDesc(recommenderItems);
+  }
   return (
     <div className="row">
       <div className="col-md-8">
@@ -19,8 +29,9 @@ const RecommenderList = ({ recommenderItems }) => {
   );
 };
 
-const mapStateToProps = ({ recommenderItems }) => ({
+const mapStateToProps = ({ recommenderItems, rewards }) => ({
   recommenderItems,
+  rewards,
 });
 
 export default connect(mapStateToProps)(RecommenderList);

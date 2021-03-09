@@ -34,11 +34,9 @@ const fetchRecommendations = (query) => {
       const { recommends } = data;
 
       if (recommends) {
-        const { products } = getState();
-        const recomendedProducts = filterProductsUsingIds(recommends, products);
         dispatch({
           type: FETCH_RECOMMENDATION_SUCCESS,
-          recommendation: recomendedProducts,
+          recommendation: recommends,
         });
       }
     } catch (error) {
