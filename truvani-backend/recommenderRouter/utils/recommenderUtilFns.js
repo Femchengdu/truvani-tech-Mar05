@@ -102,10 +102,6 @@ const recommendByProductProperty = (
       if (innerRecommendations.length === 0) {
         responseCb([]);
       } else {
-        console.log(
-          "myResults ?",
-          innerRecommendations.filter((obj) => obj.thing === "match")
-        );
         const recommendationObj = innerRecommendations.filter(
           (obj) => obj.thing === "match"
         )[0];
@@ -136,7 +132,7 @@ const recommendByProductProperty = (
           const recommendsWithoutRef = newProductArr.filter(
             (prod) => prod.id !== parseInt(productId)
           );
-          console.log("the recommend product arr is  :", recommendsWithoutRef);
+
           responseCb(recommendsWithoutRef);
         }
       }

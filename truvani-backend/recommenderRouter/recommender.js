@@ -16,8 +16,6 @@ const returnRecommendedProducts = (req, res) => {
     };
 
     const queryPid = q;
-    // Here I want to refer to use ger to process the data received
-    console.log("I have id :", q, typeof q);
     recommendByProductProperty(
       queryPid,
       products,
